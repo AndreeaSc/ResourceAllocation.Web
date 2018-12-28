@@ -31,13 +31,38 @@
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label>Hip size (cm)</label>
+                        <label>Hips size (cm)</label>
                         <input [(ngModel)]="hipsSize" name="hipsSize" class="form-control" type="number" placeholder="90">
                     </fieldset>
     
                     <fieldset class="form-group">
+                        <label>Eyes color</label>
+                        <input [(ngModel)]="eyesColor" name="eyesColor" class="form-control" placeholder="green">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Hair color</label>
+                        <input [(ngModel)]="hairColor" name="hairColor" class="form-control" placeholder="blonde">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Facebook</label>
+                        <input [(ngModel)]="facebook" name="facebook" class="form-control" placeholder="Facebook profile">
+                    </fieldset>
+                    
+                    <fieldset class="form-group">
+                        <label>Instagram</label>
+                        <input [(ngModel)]="instagram" name="instagram" class="form-control" placeholder="Instagram profile">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Photo</label>
+                        <input [(ngModel)]="photo" name="photo" class="form-control" placeholder="URL image">
+                    </fieldset>
+
+                    <fieldset class="form-group">
                         <label>Short description</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3"input [(ngModel)]="description" name="description"></textarea>
                     </fieldset>
     
                     <button type="reset" (click)="clearData()" class="btn btn-lg btn-link">Clear</button>
@@ -46,8 +71,6 @@
 
                 </form>
             </div>
-
         </div>
-        <!-- /.row -->
     </div>
     

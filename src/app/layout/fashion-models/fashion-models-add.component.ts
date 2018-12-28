@@ -19,6 +19,10 @@ export class FashionModelsAddComponent implements OnInit {
     public hipsSize;
     public eyesColor;
     public hairColor;
+    public facebook;
+    public instagram;
+    public photo;
+    public description;
 
     constructor(public httpService: HttpService, public router: Router) {}
 
@@ -35,6 +39,10 @@ export class FashionModelsAddComponent implements OnInit {
         this.hipsSize = '';
         this.eyesColor = '';
         this.hairColor = '';
+        this.facebook = '';
+        this.instagram = '';
+        this.photo = '';
+        this.description = '';
     }
 
     saveData() {
@@ -46,7 +54,11 @@ export class FashionModelsAddComponent implements OnInit {
             waistSize: this.waistSize,
             hipsSize: this.hipsSize,
             eyesColor: this.eyesColor,
-            hairColor: this.hairColor
+            hairColor: this.hairColor,
+            facebook: this.facebook,
+            instagram: this.instagram,
+            photo: this.photo,
+            description: this.description
         };
 
         this.httpService.saveFashionModel(fashionModel).subscribe(result => {
