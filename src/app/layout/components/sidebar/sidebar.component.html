@@ -10,6 +10,16 @@
             <span>{{ 'Fashion models' | translate }}</span>
         </a>
 
+        <a [routerLink]="['/designers']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-file-o"></i>&nbsp;
+            <span>{{ 'Designers' | translate }}</span>
+        </a>
+
+        <a [routerLink]="['/events']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-file-o"></i>&nbsp;
+            <span>{{ 'Events' | translate }}</span>
+        </a>
+
         <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
             <span>{{ 'Charts' | translate }}</span>

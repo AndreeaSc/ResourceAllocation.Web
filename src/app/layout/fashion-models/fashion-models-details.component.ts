@@ -4,12 +4,12 @@ import { HttpService } from 'src/app/shared/services/http-service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-fashion-models-add',
-    templateUrl: './fashion-models-add.component.html',
-    styleUrls: ['./fashion-models-add.component.scss'],
+    selector: 'app-fashion-models-details',
+    templateUrl: './fashion-models-details.component.html',
+    styleUrls: ['./fashion-models-details.component.scss'],
     animations: [routerTransition()]
 })
-export class FashionModelsAddComponent implements OnInit {
+export class FashionModelsDetailsComponent implements OnInit {
 
     public name;
     public height;

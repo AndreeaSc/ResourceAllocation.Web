@@ -1,0 +1,27 @@
+<div [@routerTransition]>
+    <br />
+    <br />
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                    <fieldset class="form-group">
+                            <h4>Add event</h4>
+                            </fieldset>
+                <form role="form">
+                    <fieldset class="form-group">
+                        <label>Events</label>
+                        <input [(ngModel)]="designer" name="designer" class="form-control" placeholder="Tudorescu">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Date</label>
+                        <input [(ngModel)]="date" name="date" type="datetime" class="form-control" placeholder="Andreea">
+                    </fieldset>
+    
+                    <button type="reset" (click)="clearData()" class="btn btn-lg btn-link">Clear</button>
+                    
+                    <button type="submit" (click)="saveData()" style="float: right;" class="btn btn-lg btn-success">Save</button>
+
+                </form>
+            </div>
+        </div>
+    

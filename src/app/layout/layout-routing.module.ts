@@ -17,6 +17,8 @@ const routes: Routes = [
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'fashion-models', loadChildren: './fashion-models/fashion-models.module#FashionModelsModule' },
+            { path: 'designers', loadChildren: './designers/designers.module#DesignersModule' },
+            { path: 'events', loadChildren: './events/events.module#EventsModule' },
         ]
     }
 ];

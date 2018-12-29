@@ -1,0 +1,31 @@
+<div [@routerTransition]>
+    <br />
+    <br />
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+    
+                <form role="form">
+                    <fieldset class="form-group">
+                        <label>Name</label>
+                        <input [(ngModel)]="name" name="name" class="form-control" placeholder="Tudorescu">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Surname</label>
+                        <input [(ngModel)]="surname" name="surname" class="form-control" placeholder="Andreea">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Mail</label>
+                        <input [(ngModel)]="mail" name="mail" class="form-control" type="mail" placeholder="@gmail.com">
+                    </fieldset>    
+    
+                    <button type="reset" (click)="clearData()" class="btn btn-lg btn-link">Clear</button>
+                    
+                    <button type="submit" (click)="saveData()" style="float: right;" class="btn btn-lg btn-success">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
