@@ -4,17 +4,16 @@ import { HttpService } from 'src/app/shared/services/http-service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-designers-add',
-    templateUrl: './designers-add.component.html',
-    styleUrls: ['./designers-add.component.scss'],
+    selector: 'app-events-edit',
+    templateUrl: './events-edit.component.html',
+    styleUrls: ['./events-edit.component.scss'],
     animations: [routerTransition()]
 })
-export class DesignersAddComponent implements OnInit {
+export class EventsEditComponent implements OnInit {
 
     public name;
-    public surname;
-    public mail;
-    public password;
+    public date;
+    public fashionModel;
 
     constructor(public httpService: HttpService, public router: Router) {}
 
@@ -24,19 +23,19 @@ export class DesignersAddComponent implements OnInit {
 
     clearData() {
         this.name = '';
-        this.surname = '';
-        this.mail = '';
+        this.date = '';
+        this.fashionModel = '';
     }
 
     saveData() {
-        const designer = {
+        const event = {
             name: this.name,
-            surname: this.surname,
-            mail: this.mail
+            date: this.date,
+            fashionModel: this.fashionModel
         };
 
-        this.httpService.saveDesigner(designer).subscribe(result => {
-            this.router.navigate(['/designers']);
+        this.httpService.saveEvent(event).subscribe(result => {
+            this.router.navigate(['/events']);
         });
     }
 }

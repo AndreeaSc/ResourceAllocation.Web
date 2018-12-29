@@ -21,4 +21,7 @@ export class DesignersListComponent implements OnInit {
     navigateToAddNewDesigner() {
         this.router.navigate(['/designers/add']);
     }
+    navigateEditDesigner() {
+        this.router.navigate(['/designers/edit']);
+    }
 }

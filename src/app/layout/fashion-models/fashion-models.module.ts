@@ -6,6 +6,8 @@ import { FashionModelsRoutingModule } from './fashion-models-routing.module';
 import { ServicesModule } from 'src/app/shared/services/services.module';
 import { FashionModelsAddComponent } from './fashion-models-add.component';
 import { FormsModule } from '@angular/forms';
+import { FashionModelsDetailsComponent } from './fashion-models-details.component';
+import { FashionModelsEditComponent } from './fashion-models-edit.component';
 
 @NgModule({
     imports: [
@@ -17,11 +19,15 @@ import { FormsModule } from '@angular/forms';
     ],
     declarations: [
         FashionModelsListComponent,
-        FashionModelsAddComponent
+        FashionModelsAddComponent,
+        FashionModelsDetailsComponent,
+        FashionModelsEditComponent
     ],
     exports: [
         FashionModelsListComponent,
-        FashionModelsAddComponent
+        FashionModelsAddComponent,
+        FashionModelsDetailsComponent,
+        FashionModelsEditComponent
     ]
 })
 export class FashionModelsModule {}

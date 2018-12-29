@@ -4,12 +4,12 @@ import { HttpService } from 'src/app/shared/services/http-service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-designers-add',
-    templateUrl: './designers-add.component.html',
-    styleUrls: ['./designers-add.component.scss'],
+    selector: 'app-designers-edit',
+    templateUrl: './designers-edit.component.html',
+    styleUrls: ['./designers-edit.component.scss'],
     animations: [routerTransition()]
 })
-export class DesignersAddComponent implements OnInit {
+export class DesignersEditComponent implements OnInit {
 
     public name;
     public surname;
@@ -26,13 +26,15 @@ export class DesignersAddComponent implements OnInit {
         this.name = '';
         this.surname = '';
         this.mail = '';
+        this.password = '';
     }
 
     saveData() {
         const designer = {
             name: this.name,
             surname: this.surname,
-            mail: this.mail
+            mail: this.mail,
+            password: this.password
         };
 
         this.httpService.saveDesigner(designer).subscribe(result => {

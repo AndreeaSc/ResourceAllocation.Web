@@ -6,7 +6,7 @@ import { DesignersRoutingModule } from './designers-routing.module';
 import { ServicesModule } from 'src/app/shared/services/services.module';
 import { FormsModule } from '@angular/forms';
 import { DesignersAddComponent } from './designers-add.component';
-
+import { DesignersEditComponent } from './designers-edit.component';
 
 @NgModule({
     imports: [
@@ -18,11 +18,13 @@ import { DesignersAddComponent } from './designers-add.component';
     ],
     declarations: [
         DesignersListComponent,
-        DesignersAddComponent
+        DesignersAddComponent,
+        DesignersEditComponent,
     ],
     exports: [
         DesignersListComponent,
-        DesignersAddComponent
+        DesignersAddComponent,
+        DesignersEditComponent
     ]
 })
 export class DesignersModule {}

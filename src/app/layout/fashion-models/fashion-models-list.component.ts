@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class FashionModelsListComponent implements OnInit {
 
     public fashionModels: Array<Object>;
-    constructor(public httpService: HttpService, public router: Router) {}
+    constructor(public httpService: HttpService, public router: Router) {
+
+    }
 
     ngOnInit() {
         this.httpService.getFashionModels()
@@ -21,5 +23,13 @@ export class FashionModelsListComponent implements OnInit {
 
     navigateToAddNewFashionModel() {
         this.router.navigate(['/fashion-models/add']);
+    }
+
+    navigateToFashionModelDetails() {
+        this.router.navigate(['/fashion-models/details']);
+    }
+
+    navigateToFashionModelEdit(id) {
+        this.router.navigate(['/fashion-models/edit'], { queryParams: { id: id } });
     }
 }

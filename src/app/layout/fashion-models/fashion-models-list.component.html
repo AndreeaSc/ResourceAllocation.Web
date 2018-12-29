@@ -1,38 +1,45 @@
+<!--<div class="row">
+        <div class="col col-xl-12 col-lg-12">
+            <button type="button" class="btn btn-lg btn-success" (click)="navigateToFashionModelDetails()">Details</button>
+        </div>
+    </div>
+<br />
+-->
+
+<div class="page-header">
+    <h1> 
+        <span>Fashion models ({{fashionModels?.length}})</span>
+        <button type="button" class="btn btn-default float-right" data-toggle="tooltip" data-placement="right" title="Add a new model">
+                <i class="fa fa-plus" style="font-size: 30px;" id="addButton" (click)="navigateToAddNewFashionModel()"></i>
+        </button>
+    </h1>    
+    <hr>
+</div>
 
 <div class="row">
-    <div class="col col-xl-12 col-lg-12">
-            <button type="button" class="btn btn-lg btn-success" (click)="navigateToAddNewFashionModel()">Add a new one</button>
+    <div class="col-md-12 input-group">
+        <input type="text" class="form-control form-control-lg" placeholder="Search model...">
+        <div class="input-group-append input-group-append-lg">
+            <button class="btn btn-secondary btn-lg" type="button"><i class="fa fa-search"></i></button>
+        </div>
     </div>
 </div>
 
 <br />
 
 <div class="row">
-    <div class="col col-xl-12 col-lg-12">
-        <div class="card mb-3">
+    <div class="col-sm-4" *ngFor="let fashionModel of fashionModels; index as i">
+        <div class="card bg-light mb-3">    
             <div class="card-header">
-                Fashion models
-            </div>
-            <div class="card-body table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Breast size</th>
-                        <th>Username</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let fashionModel of fashionModels; index as i">
-                        <th scope="row">{{i + 1}}</th>
-                        <td>{{fashionModel.name}}</td>
-                        <td>{{fashionModel.breastSize}}</td>
-                        <td>@mdo</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                <h4 class="card-title" (click)="navigateToFashionModelDetails()">
+                        <span>{{fashionModel.name}}</span>
+                        <i class="fa fa-trash btn float-right"></i>
+                        <i class="fa fa-edit btn float-right" (click)="navigateToFashionModelEdit(fashionModel.id)"></i>&nbsp;
+                </h4>
+                <p class="card-text">Height: {{fashionModel.height}}, Breast: {{fashionModel.breastSize}}, 
+                    Waist: {{fashionModel.waistSize}}, Hips: {{fashionModel.hipsSize}}</p>
+                <img src="{{fashionModel.photo}}" class="model-image"/>
+            </div>     
         </div>
     </div>
 </div>

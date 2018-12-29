@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DesignersListComponent } from './designers-list.component';
 import { DesignersAddComponent } from './designers-add.component';
+import { DesignersEditComponent } from './designers-edit.component';
 
 const routes: Routes = [
     {
@@ -9,7 +10,10 @@ const routes: Routes = [
     },
      {
          path: 'add', component: DesignersAddComponent
-     }
+     },
+     {
+        path: 'edit', component: DesignersEditComponent
+    }
 ];
 
 
