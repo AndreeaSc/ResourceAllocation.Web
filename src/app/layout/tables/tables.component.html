@@ -8,13 +8,32 @@
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Breast size</th>
-                            <th>Username</th>
-                        </tr>
+                        <thead *ngFor="let fashionModel of fashionModels; index as i">
+                            <tr>
+                                <th>Height</th>
+                                <th>{{fashionModel.height}} cm</th>
+                            </tr>
+                            <tr>
+                                <th>Waight</th>
+                                <th>{{fashionModel.weight}} kg</th>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th>Breast</th>
+                                <th>{{fashionModel.breastSize}} cm</th>
+                            </tr>
+                            <tr>
+                                <th>Waist</th>
+                                <th>{{fashionModel.waistSize}} cm</th>
+                            </tr>
+                            <tr>
+                                <th>Eyes color:</th>
+                                <th>{{fashionModel.eyesColor}} cm</th>
+                            </tr>
+                            <tr>
+                                <th>Hair color:</th>
+                                <th>{{fashionModel.hairColor}} cm</th>
+                            </tr>
                         </thead>
                         <tbody>
                         <tr *ngFor="let fashionModel of fashionModels; index as i">

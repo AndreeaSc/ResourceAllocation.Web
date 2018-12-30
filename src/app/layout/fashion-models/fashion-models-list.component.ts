@@ -25,8 +25,8 @@ export class FashionModelsListComponent implements OnInit {
         this.router.navigate(['/fashion-models/add']);
     }
 
-    navigateToFashionModelDetails() {
-        this.router.navigate(['/fashion-models/details']);
+    navigateToFashionModelDetails(id) {
+        this.router.navigate(['/fashion-models/details'], { queryParams: { id: id } });
     }
 
     navigateToFashionModelEdit(id) {
