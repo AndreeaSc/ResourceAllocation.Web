@@ -51,6 +51,10 @@ export class HttpService {
         return this.httpClient.patch(this.FASHION_MODELS, fashionModel, {headers: this.contentHeader});
     }
 
+    public deleteFashionModel(id) {
+        return this.httpClient.delete(this.FASHION_MODELS + '/' + id, {headers: this.contentHeader});
+    }
+
     public getDesigners() {
         return this.httpClient.get(this.DESIGNERS, {headers: this.contentHeader})
         .pipe(map((response: any) => response.result));
