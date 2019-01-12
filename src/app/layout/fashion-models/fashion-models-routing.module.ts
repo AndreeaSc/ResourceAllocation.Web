@@ -4,6 +4,7 @@ import { FashionModelsListComponent } from './fashion-models-list.component';
 import { FashionModelsAddComponent } from './fashion-models-add.component';
 import { FashionModelsDetailsComponent } from './fashion-models-details.component';
 import { FashionModelsEditComponent } from './fashion-models-edit.component';
+import { FashionModelsDeleteComponent } from './fashion-models-delete.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,9 @@ const routes: Routes = [
     },
     {
         path: 'edit', component: FashionModelsEditComponent
+    },
+    {
+        path: 'delete', component: FashionModelsDeleteComponent
     }
 ];
 

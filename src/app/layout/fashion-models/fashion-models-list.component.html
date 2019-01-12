@@ -26,7 +26,7 @@
                 <h4 class="card-title" (click)="navigateToFashionModelDetails()">
                         <span (click)="navigateToFashionModelDetails(fashionModel.id)" class="pointer" >{{fashionModel.name}}</span>
                         <i class="fa fa-check btn float-right"></i>&nbsp;
-                        <i class="fa fa-trash btn float-right"></i>
+                        <i class="fa fa-trash btn float-right" (click)="navigateToFashionModelDelete(fashionModel.id)"></i>&nbsp;
                         <i class="fa fa-edit btn float-right" (click)="navigateToFashionModelEdit(fashionModel.id)"></i>&nbsp;
                 </h4>
                 <p class="card-text">Height: {{fashionModel.height}}, Breast: {{fashionModel.breastSize}}, 

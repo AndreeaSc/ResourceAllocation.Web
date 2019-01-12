@@ -32,4 +32,14 @@ export class FashionModelsListComponent implements OnInit {
     navigateToFashionModelEdit(id) {
         this.router.navigate(['/fashion-models/edit'], { queryParams: { id: id } });
     }
+
+    navigateToFashionModelDelete(id) {
+       /**  this.router.navigate(['/fashion-models/delete'], { queryParams: { id: id } });*/
+       if (confirm('Are you sure to delete this record?') === true) {
+        this.httpService.deleteFashionModel(id)
+           .subscribe(x => {
+               this.httpService.getFashionModels();
+           });
+       }
+    }
 }

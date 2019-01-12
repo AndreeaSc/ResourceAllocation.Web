@@ -7,7 +7,6 @@ import { ServicesModule } from 'src/app/shared/services/services.module';
 import { FormsModule } from '@angular/forms';
 import { EventsAddComponent } from './events-add.component';
 import { EventsEditComponent } from './events-edit.component';
-
 @NgModule({
     imports: [
         CommonModule,
