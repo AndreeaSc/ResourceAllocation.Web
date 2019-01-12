@@ -21,6 +21,10 @@ export class FashionModelsListComponent implements OnInit {
         .subscribe(response => { this.fashionModels = response; });
     }
 
+    navigateToFashionModels() {
+        this.router.navigate(['/fashion-models']);
+    }
+
     navigateToAddNewFashionModel() {
         this.router.navigate(['/fashion-models/add']);
     }
@@ -34,12 +38,11 @@ export class FashionModelsListComponent implements OnInit {
     }
 
     navigateToFashionModelDelete(id) {
-       /**  this.router.navigate(['/fashion-models/delete'], { queryParams: { id: id } });*/
-       if (confirm('Are you sure to delete this record?') === true) {
+       if (confirm('Are you sure to delete this fashion model?') === true) {
         this.httpService.deleteFashionModel(id)
-           .subscribe(x => {
-               this.httpService.getFashionModels();
-           });
+        .subscribe(result => {
+            this.httpService.getFashionModels().subscribe(response => { this.fashionModels = response; });
+        });
        }
     }
 }

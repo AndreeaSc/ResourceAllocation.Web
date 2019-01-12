@@ -23,7 +23,7 @@
     <div class="col-sm-4" *ngFor="let fashionModel of fashionModels; index as i">
         <div class="card bg-light mb-3">    
             <div class="card-header">
-                <h4 class="card-title" (click)="navigateToFashionModelDetails()">
+                <h4 class="card-title">
                         <span (click)="navigateToFashionModelDetails(fashionModel.id)" class="pointer" >{{fashionModel.name}}</span>
                         <i class="fa fa-check btn float-right"></i>&nbsp;
                         <i class="fa fa-trash btn float-right" (click)="navigateToFashionModelDelete(fashionModel.id)"></i>&nbsp;
@@ -31,7 +31,7 @@
                 </h4>
                 <p class="card-text">Height: {{fashionModel.height}}, Breast: {{fashionModel.breastSize}}, 
                     Waist: {{fashionModel.waistSize}}, Hips: {{fashionModel.hipsSize}}</p>
-                <img src="{{fashionModel.photo}}" class="model-image"/>
+                <img src="{{fashionModel.photo ? fashionModel.photo : 'assets/images/fashionmodelplaceholder.png'}}" class="model-image"/>
             </div>     
         </div>
     </div>
