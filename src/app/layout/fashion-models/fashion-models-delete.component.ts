@@ -21,10 +21,4 @@ export class FashionModelsDeleteComponent implements OnInit {
             this.fashionModel = result;
         });
     }
-
-    deleteData() {
-        this.httpService.deleteFashionModel(this.fashionModel).subscribe(result => {
-            this.router.navigate(['/fashion-models']);
-        });
-    }
 }
