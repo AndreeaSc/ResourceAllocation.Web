@@ -1,0 +1,66 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Fashion models'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        
+        <div class="col col-xl-12 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Fashion Models</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                            <th>BreastSize</th>
+                            <th>WaistSize</th>
+                            <th>HipsSize</th>
+                            <th>EyesColor</th>
+                            <th>HairColor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of fashionModels?.result; index as i">
+                                <td>{{item.name}}</td>
+                                <td>{{item.height}}</td>
+                                <td>{{item.weight}}</td>
+                                <td>{{item.breastSize}}</td>
+                                <td>{{item.waistSize}}</td>
+                                <td>{{item.hipsSize}}</td>
+                                <td>{{item.eyesColor}}</td>
+                                <td>{{item.hairColor}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col col-xl-12 col-lg-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Designers
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of designers?.result; index as i">
+                                <th scope="row">{{i + 1}}</th>
+                                <td>{{item.name}}</td>
+                                <td>{{item.surname}}</td>
+                                <td>{{item.mail}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
