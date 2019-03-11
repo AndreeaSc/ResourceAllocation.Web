@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">    <body>
+
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
@@ -6,17 +8,17 @@
         </a>
 
         <a [routerLink]="['/fashion-models']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;
+            <i class="fas fa-person-booth"></i>&nbsp;
             <span>{{ 'Fashion models' | translate }}</span>
         </a>
 
         <a [routerLink]="['/designers']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;
+            <i class="fas fa-users"></i>&nbsp;
             <span>{{ 'Designers' | translate }}</span>
         </a>
 
         <a [routerLink]="['/events']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;
+            <i class="fas fa-calendar-week"></i>&nbsp;
             <span>{{ 'Events' | translate }}</span>
         </a>
 

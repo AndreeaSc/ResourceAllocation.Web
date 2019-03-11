@@ -1,9 +1,14 @@
 <div class="row">
     <div class="col col-xl-12 col-lg-12">
         <div class="card mb-3">
-            <div class="card-header">
-                Events
-                <i class="fa fa-plus btn" (click)="navigateToAddNewEvent()" ></i>&nbsp;
+            <div class="page-header">
+                <h1> 
+                    <span>Events ({{events?.length}})</span>
+                    <button type="button" class="btn btn-default float-right" data-toggle="tooltip" data-placement="right" title="Add a new event">
+                            <i class="fa fa-plus" style="font-size: 30px;" id="addButton" (click)="navigateToAddNewEvent()"></i>
+                    </button>
+                </h1>    
+                <hr>
             </div>
             
             <div class="card-body table-responsive">
@@ -21,8 +26,8 @@
                         <th scope="row">{{i + 1}}</th>
                         <td>{{event.designer}}</td>
                         <td>{{event.date}}</td>
-                       <i class="fa fa-edit btn" (click)="navigateToEditEvent()"></i>&nbsp;
-                       <i class="fa fa-trash btn"></i>&nbsp;
+                       <i class="fa fa-edit btn" (click)="navigateToEditEvent(event.id)"></i>&nbsp;
+                       <i class="fa fa-trash btn" (click)="navigateToDeleteEvent(event.id)"></i>&nbsp;
                     </tr>
                     </tbody>
                 </table>

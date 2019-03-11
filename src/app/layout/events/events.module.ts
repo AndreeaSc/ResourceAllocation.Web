@@ -7,6 +7,8 @@ import { ServicesModule } from 'src/app/shared/services/services.module';
 import { FormsModule } from '@angular/forms';
 import { EventsAddComponent } from './events-add.component';
 import { EventsEditComponent } from './events-edit.component';
+import { EventsDeleteComponent } from './events-delete.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -18,12 +20,14 @@ import { EventsEditComponent } from './events-edit.component';
     declarations: [
         EventsListComponent,
         EventsAddComponent,
-        EventsEditComponent
+        EventsEditComponent,
+        EventsDeleteComponent
     ],
     exports: [
         EventsListComponent,
         EventsAddComponent,
-        EventsEditComponent
+        EventsEditComponent,
+        EventsDeleteComponent
     ]
 })
 export class EventsModule {}

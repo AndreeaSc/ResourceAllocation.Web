@@ -19,6 +19,8 @@ export class FashionModelsEditComponent implements OnInit {
         const fashionModelId = this.route.snapshot.queryParamMap.get('id');
         this.httpService.getFashionModelById(fashionModelId).subscribe(result => {
             this.fashionModel = result;
+            console.log(this.fashionModel);
+            console.log(result);
         });
     }
 

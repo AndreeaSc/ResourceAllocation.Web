@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DesignersListComponent } from './designers-list.component';
 import { DesignersAddComponent } from './designers-add.component';
 import { DesignersEditComponent } from './designers-edit.component';
+import { DesignersDeleteComponent } from './designers-delete.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,9 @@ const routes: Routes = [
      },
      {
         path: 'edit', component: DesignersEditComponent
+    },
+    {
+        path: 'delete', component: DesignersDeleteComponent
     }
 ];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { HttpService } from 'src/app/shared/services/http-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-designers-edit',
@@ -11,33 +11,19 @@ import { Router } from '@angular/router';
 })
 export class DesignersEditComponent implements OnInit {
 
-    public name;
-    public surname;
-    public mail;
-    public password;
+    public designer: any;
 
-    constructor(public httpService: HttpService, public router: Router) {}
+    constructor(public httpService: HttpService, public router: Router, private route: ActivatedRoute) {}
 
     ngOnInit() {
-
+        const designerId = this.route.snapshot.queryParamMap.get('id');
+        this.httpService.getDesignerById(designerId).subscribe(result => {
+            this.designer = result;
+        });
     }
 
-    clearData() {
-        this.name = '';
-        this.surname = '';
-        this.mail = '';
-        this.password = '';
-    }
-
-    saveData() {
-        const designer = {
-            name: this.name,
-            surname: this.surname,
-            mail: this.mail,
-            password: this.password
-        };
-
-        this.httpService.saveDesigner(designer).subscribe(result => {
+    updateData() {
+        this.httpService.updateDesigner(this.designer).subscribe(result => {
             this.router.navigate(['/designers']);
         });
     }

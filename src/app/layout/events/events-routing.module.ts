@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EventsListComponent } from './events-list.component';
 import { EventsAddComponent } from './events-add.component';
 import { EventsEditComponent } from './events-edit.component';
+import { EventsDeleteComponent } from './events-delete.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,9 @@ const routes: Routes = [
      },
      {
         path: 'edit', component: EventsEditComponent
+    },
+    {
+        path: 'delete', component: EventsDeleteComponent
     }
 ];
 

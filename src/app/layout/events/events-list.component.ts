@@ -21,7 +21,17 @@ export class EventsListComponent implements OnInit {
     navigateToAddNewEvent() {
         this.router.navigate(['/events/add']);
     }
-    navigateToEditEvent() {
-        this.router.navigate(['/events/edit']);
+
+    navigateToEditEvent(id) {
+        this.router.navigate(['/events/edit'], { queryParams: { id: id } });
     }
+
+    navigateToDeleteEvent(id) {
+        if (confirm('Are you sure to delete this event?') === true) {
+         this.httpService.deleteEvent(id)
+         .subscribe(result => {
+             this.httpService.getEvents().subscribe(response => { this.events = response; });
+         });
+        }
+     }
 }
