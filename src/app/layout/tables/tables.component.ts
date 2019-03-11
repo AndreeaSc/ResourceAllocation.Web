@@ -10,7 +10,7 @@ import { HttpService } from 'src/app/shared/services/http-service';
 })
 export class TablesComponent implements OnInit {
 
-    public fashionModels: Array<Object>;
+    public fashionModels: any;
     constructor(public httpService: HttpService) {}
 
     ngOnInit() {

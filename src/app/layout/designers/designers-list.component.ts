@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DesignersListComponent implements OnInit {
 
-    public designers: Array<Object>;
+    public designers: any;
     constructor(public httpService: HttpService, public router: Router) {}
 
     ngOnInit() {
@@ -21,7 +21,16 @@ export class DesignersListComponent implements OnInit {
     navigateToAddNewDesigner() {
         this.router.navigate(['/designers/add']);
     }
-    navigateEditDesigner() {
-        this.router.navigate(['/designers/edit']);
+    navigateEditDesigner(id) {
+        this.router.navigate(['/designers/edit'],  { queryParams: { id: id } });
     }
+
+    navigateToDeleteDesigner(id) {
+        if (confirm('Are you sure to delete this event?') === true) {
+         this.httpService.deleteDesigner(id)
+         .subscribe(result => {
+             this.httpService.getDesigners().subscribe(response => { this.designers = response; });
+         });
+        }
+     }
 }

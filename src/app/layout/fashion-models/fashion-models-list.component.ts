@@ -11,14 +11,15 @@ import { Router } from '@angular/router';
 })
 export class FashionModelsListComponent implements OnInit {
 
-    public fashionModels: Array<Object>;
+    public fashionModels: any;
     constructor(public httpService: HttpService, public router: Router) {
 
     }
 
     ngOnInit() {
-        this.httpService.getFashionModels()
-        .subscribe(response => { this.fashionModels = response; });
+        this.httpService.getFashionModels().subscribe(response => {
+            this.fashionModels = response;
+        });
     }
 
     navigateToFashionModels() {

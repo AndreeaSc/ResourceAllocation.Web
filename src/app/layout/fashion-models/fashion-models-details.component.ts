@@ -21,10 +21,4 @@ export class FashionModelsDetailsComponent implements OnInit {
             this.fashionModel = result;
         });
     }
-
-    updateData() {
-        this.httpService.updateFashionModel(this.fashionModel).subscribe(result => {
-            this.router.navigate(['/fashion-models']);
-        });
-    }
 }

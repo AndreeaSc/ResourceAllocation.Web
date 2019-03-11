@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { HttpService } from 'src/app/shared/services/http-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-events-edit',
@@ -11,30 +11,19 @@ import { Router } from '@angular/router';
 })
 export class EventsEditComponent implements OnInit {
 
-    public name;
-    public date;
-    public fashionModel;
+    constructor(public httpService: HttpService, public router: Router, private route: ActivatedRoute) {}
 
-    constructor(public httpService: HttpService, public router: Router) {}
+    public event: any;
 
     ngOnInit() {
-
+        const eventlId = this.route.snapshot.queryParamMap.get('id');
+        this.httpService.getEventById(eventlId).subscribe(result => {
+            this.event = result;
+        });
     }
 
-    clearData() {
-        this.name = '';
-        this.date = '';
-        this.fashionModel = '';
-    }
-
-    saveData() {
-        const event = {
-            name: this.name,
-            date: this.date,
-            fashionModel: this.fashionModel
-        };
-
-        this.httpService.saveEvent(event).subscribe(result => {
+    updateData() {
+        this.httpService.updateEvent(this.event).subscribe(result => {
             this.router.navigate(['/events']);
         });
     }
