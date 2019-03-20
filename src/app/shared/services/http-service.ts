@@ -9,7 +9,7 @@ export class HttpService {
     }
 
     BASE_URL = 'https://localhost:44304';
-    FASHION_MODELS = this.BASE_URL + '/api/fashionModels';
+    FASHION_MODELS = this.BASE_URL + '/api/artists';
     DESIGNERS = this.BASE_URL + '/api/designers';
     EVENTS = this.BASE_URL + '/api/shows';
 
