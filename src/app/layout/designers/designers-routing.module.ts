@@ -4,6 +4,7 @@ import { DesignersListComponent } from './designers-list.component';
 import { DesignersAddComponent } from './designers-add.component';
 import { DesignersEditComponent } from './designers-edit.component';
 import { DesignersDeleteComponent } from './designers-delete.component';
+import { DesignersSelectModelsComponent } from './designers-select-models.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,9 @@ const routes: Routes = [
     },
     {
         path: 'delete', component: DesignersDeleteComponent
+    },
+    {
+        path: 'select-models', component: DesignersSelectModelsComponent
     }
 ];
 

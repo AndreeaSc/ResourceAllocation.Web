@@ -1,17 +1,47 @@
 <div [@routerTransition]>
-   <br />
-   <br />
-   <div class="row justify-content-md-center">
-      <div class="col-md-4">
-         <fieldset class="form-group">
-            <h4>Designer edit</h4>
-         </fieldset>
-         <form role="form">
+      <br />
+      <br />
+      <div class="row justify-content-md-center">
+         <div class="col-md-4">
             <fieldset class="form-group">
-               <label>Name</label>
-               <input [(ngModel)]="designer.name" name="designer" class="form-control" placeholder="Tudorescu">
+               <h4>Designer edit</h4>
             </fieldset>
-            <button type="submit" (click)="updateData()" style="float: right;" class="btn btn-lg btn-success">Save</button>
-         </form>
+            <form role="form">
+               <fieldset class="form-group">
+                  <label>Name</label>
+                  <input [(ngModel)]="designer.name" name="designer" class="form-control" placeholder="Tudorescu">
+               </fieldset>
+               <button type="submit" (click)="updateData()" style="float: right;" class="btn btn-lg btn-success">Save</button>
+            </form>
+         </div>
+         <div class="card-body table-responsive">
+            <div>
+               <tbody>
+                  <tr>
+                     <td>Favorites artists</td>
+                     <td> <i class="fa fa-edit btn" (click)="navigateToSelectModels(designer.id)"> </i></td>
+                  </tr>
+               </tbody>
+            </div>
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th>#</th>
+                     <th>Name</th>
+                     <th>Gender</th>
+                     <th>Height</th>
+                     <th>Breast/ Waist/ Hips</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let favoriteArtist of designer?.favoriteArtists; index as i">
+                     <th scope="row">{{i + 1}}</th>
+                     <td>{{favoriteArtist.artist.name}}</td>
+                     <td>{{favoriteArtist.artist.gender}} </td>
+                     <td>{{favoriteArtist.artist.height}}</td>
+                     <td>{{favoriteArtist.artist.breastSize}} / {{favoriteArtist.artist.waistSize}} / {{favoriteArtist.artist.hipsSize}} </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
       </div>
-</div>

@@ -79,4 +79,7 @@ export class HttpService {
     public deleteDesigner(id) {
         return this.httpClient.delete(this.DESIGNERS + '/' + id, {headers: this.contentHeader});
     }
+    public navigateToSelectModels(id) {
+        return this.httpClient.post(this.DESIGNERS + '/' + id, {headers: this.contentHeader});
+    }
 }
