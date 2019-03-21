@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { DesignersAddComponent } from './designers-add.component';
 import { DesignersEditComponent } from './designers-edit.component';
 import { DesignersDeleteComponent } from './designers-delete.component';
+import { DesignersSelectModelsComponent } from './designers-select-models.component';
 
 @NgModule({
     imports: [
@@ -21,13 +22,15 @@ import { DesignersDeleteComponent } from './designers-delete.component';
         DesignersListComponent,
         DesignersAddComponent,
         DesignersEditComponent,
-        DesignersDeleteComponent
+        DesignersDeleteComponent,
+        DesignersSelectModelsComponent
     ],
     exports: [
         DesignersListComponent,
         DesignersAddComponent,
         DesignersEditComponent,
-        DesignersDeleteComponent
+        DesignersDeleteComponent,
+        DesignersSelectModelsComponent
     ]
 })
 export class DesignersModule {}
