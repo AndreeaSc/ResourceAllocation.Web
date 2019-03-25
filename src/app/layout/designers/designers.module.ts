@@ -9,6 +9,7 @@ import { DesignersAddComponent } from './designers-add.component';
 import { DesignersEditComponent } from './designers-edit.component';
 import { DesignersDeleteComponent } from './designers-delete.component';
 import { DesignersSelectModelsComponent } from './designers-select-models.component';
+import { SortablejsModule } from 'angular-sortablejs';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { DesignersSelectModelsComponent } from './designers-select-models.compon
         RouterModule,
         DesignersRoutingModule,
         ServicesModule,
-        FormsModule
+        FormsModule,
+        SortablejsModule
     ],
     declarations: [
         DesignersListComponent,
