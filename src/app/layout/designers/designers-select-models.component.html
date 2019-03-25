@@ -1,51 +1,25 @@
 <div [@routerTransition]>
-   <i class="page-header">
-   <h1> 
-      <span>Favorites fashion models</span>
-</h1>
-</i>
-   <br />
-   <div class="row">
-       <form role="form">
-           <div class="col-sm-4" [sortablejs]="models" *ngFor="let model of models; index as i">
-                   <div class="card bg-light mb-3">
-                       <div class="card-header">
-                           <h4>{{model.name}}</h4>
-                           <p class="card-text">Height: {{model.height}}, Breast: {{model.breastSize}}, Waist: {{model.waistSize}}, Hips: {{model.hipsSize}}</p>
-                          <!-- <input type="checkbox" name="modelSelected{{model.id}}" [(ngModel)]="model.isSelected" (change)="changeCheckbox(i)" [checked]="model.checked">-->
-                          <input type="checkbox" name="modelSelected{{model.id}}" [(ngModel)]="model.isSelected" (change)="changeCheckbox(i)" [checked]="model.checked">
-                           <img src="{{model.photo ? model.photo : 'assets/images/fashionmodelplaceholder.png'}}" class="model-image" />
-                       </div>
-                   </div>
-               </div>
-           <div class="row">
-               <button type="submit" (click)="saveFavoriteFashionModels()" style="float: right;" class="btn btn-lg btn-success">Save</button>
-           </div>
-       </form>
-   </div>
-
-<!--
-   <div [@routerTransition]>
-         <i class="page-header">
-               <h1> 
-                     <span>Favorites fashion models</span>
-               </h1>
-               </i>
-
-   <br />
+      <i class="page-header">
+         <h1> 
+            <span>Favorites fashion models</span>
+         </h1>
+      </i>
+      <br />
       </div>
       <div class="row">
-            <div class="col-sm-4" [sortablejs]="models" *ngFor="let model of models; index as i">
-                  <div class="card bg-light mb-3">
-               <div class="card-header">
-                  <h4 class="card-title">
-                        h4>{{model.name}}</h4>
-                        <p class="card-text">Height: {{model.height}}, Breast: {{model.breastSize}}, Waist: {{model.waistSize}}, Hips: {{model.hipsSize}}</p>
-                       <input type="checkbox" name="modelSelected{{model.id}}" [(ngModel)]="model.isSelected" (change)="changeCheckbox(i)" [checked]="model.checked">
-                        <img src="{{model.photo ? model.photo : 'assets/images/fashionmodelplaceholder.png'}}" class="model-image" />
-                    </div>
+         <div class="col-sm-2" [sortablejs]="models" *ngFor="let model of models; index as i">
+         <div class="card bg-light mb-6">
+            <div class="card-header">
+               <h4 class="card-title">
+                  {{model.name}}
+               </h4>
+               <p class="card-text">Height: {{model.height}}, Breast: {{model.breastSize}}, Waist: {{model.waistSize}}, Hips: {{model.hipsSize}}</p>
+               <input type="checkbox" name="modelSelected{{model.id}}" [(ngModel)]="model.isSelected" (change)="changeCheckbox(i)" [checked]="model.checked">
+               <img src="{{model.photo ? model.photo : 'assets/images/fashionmodelplaceholder.png'}}" class="model-image" />
             </div>
          </div>
       </div>
       </div>
-   -->
+      <div class="row">
+         <button type="submit" (click)="saveFavoriteFashionModels()" style="float: right;" class="btn btn-lg btn-success">Save</button>
+      </div>

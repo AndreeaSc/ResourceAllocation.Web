@@ -28,3 +28,29 @@
       </tbody>
    </table>
 </div>
+
+<div>
+   <h6>Designers models resulted after algorithm generated</h6>
+</div>
+
+   <div class="card-body table-responsive">
+      <table class="table">
+         <thead>
+            <tr>
+               <th>#</th>
+               <th>Name</th>
+               <th>Mail</th>
+               <th>Edit/ Delete</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let designer of designers; index as i">
+               <th scope="row">{{i + 1}}</th>
+               <td>{{designer.name}}</td>
+               <td>{{designer.mail}}</td>
+               <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
+               <i class="fa fa-trash btn"(click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
+            </tr>
+         </tbody>
+      </table>
+   </div>
