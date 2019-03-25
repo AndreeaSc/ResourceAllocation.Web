@@ -82,4 +82,8 @@ export class HttpService {
     public navigateToSelectModels(id) {
         return this.httpClient.post(this.DESIGNERS + '/' + id, {headers: this.contentHeader});
     }
+
+    public setFavoriteArtists(id, favoriteArtists) {
+        return this.httpClient.post(this.DESIGNERS + '/' + id + '/set-favourite-models',  favoriteArtists, {headers: this.contentHeader});
+    }
 }
