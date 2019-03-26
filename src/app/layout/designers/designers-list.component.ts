@@ -11,11 +11,16 @@ import { Router } from '@angular/router';
 export class DesignersListComponent implements OnInit {
 
     public designers: any;
+    public allocated: any;
     constructor(public httpService: HttpService, public router: Router) {}
 
     ngOnInit() {
         this.httpService.getDesigners()
         .subscribe(response => { this.designers = response; });
+
+        this.httpService.getAllocatedModels()
+        .subscribe(response => { this.allocated = response;
+        });
     }
 
     navigateToAddNewDesigner() {
