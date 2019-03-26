@@ -30,7 +30,7 @@
 </div>
 
 <div>
-   <h6>Designers models resulted after algorithm generated</h6>
+   <h6>Allocated models for designers</h6>
 </div>
 
    <div class="card-body table-responsive">
@@ -39,17 +39,28 @@
             <tr>
                <th>#</th>
                <th>Name</th>
-               <th>Mail</th>
                <th>Edit/ Delete</th>
             </tr>
          </thead>
          <tbody>
-            <tr *ngFor="let designer of designers; index as i">
+            <tr *ngFor="let designer of allocated; index as i">
                <th scope="row">{{i + 1}}</th>
                <td>{{designer.name}}</td>
-               <td>{{designer.mail}}</td>
                <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
                <i class="fa fa-trash btn"(click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
+               <td class="table">
+                  <thead>
+                     <tr>
+                        <th>#</th>
+                        <th>Allocated artists</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let allocatedArtist of designer?.allocatedArtists; index as i">
+                        <td scope="row">{{i + 1}}</td>
+                        <td>{{allocatedArtist.artist.name}}</td></tr>
+                  </tbody>
+               </td>
             </tr>
          </tbody>
       </table>

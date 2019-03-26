@@ -12,6 +12,7 @@ export class HttpService {
     FASHION_MODELS = this.BASE_URL + '/api/artists';
     DESIGNERS = this.BASE_URL + '/api/designers';
     EVENTS = this.BASE_URL + '/api/shows';
+    ALLOCATED_MODELS = this.BASE_URL + '/api/resourceallocation';
 
     contentHeader: HttpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -85,5 +86,9 @@ export class HttpService {
 
     public setFavoriteArtists(id, favoriteArtists) {
         return this.httpClient.post(this.DESIGNERS + '/' + id + '/set-favourite-models',  favoriteArtists, {headers: this.contentHeader});
+    }
+
+    public getAllocatedModels() {
+        return this.httpClient.get(this.ALLOCATED_MODELS, {headers: this.contentHeader});
     }
 }
