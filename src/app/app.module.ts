@@ -14,6 +14,7 @@ import { AuthGuard } from './shared';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from './shared/services/http-service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -32,6 +33,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        DragDropModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

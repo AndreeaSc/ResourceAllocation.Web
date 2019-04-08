@@ -12,7 +12,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DesignersEditComponent implements OnInit {
 
     public designer: any;
-    public models: any;
 
     constructor(public httpService: HttpService, public router: Router, private route: ActivatedRoute) {}
 
@@ -20,9 +19,8 @@ export class DesignersEditComponent implements OnInit {
         const designerId = this.route.snapshot.queryParamMap.get('id');
         this.httpService.getDesignerById(designerId).subscribe(result => {
             this.designer = result;
-        });
-        this.httpService.getFashionModels().subscribe(result => {
-            this.models = result;
+            console.log('get designer with details');
+            console.log(this.designer);
         });
     }
 

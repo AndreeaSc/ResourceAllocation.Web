@@ -16,6 +16,6 @@ export class FormComponent implements OnInit {
     ngOnInit() {}
 
     saveFashionModel() {
-        console.log(this.fashionModel);
+
     }
 }
