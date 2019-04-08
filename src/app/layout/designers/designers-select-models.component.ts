@@ -3,6 +3,7 @@ import { routerTransition } from '../../router.animations';
 import { HttpService } from 'src/app/shared/services/http-service';
 import { Router, ActivatedRoute} from '@angular/router';
 import { FormControl, FormArray, Form } from '@angular/forms';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-designers-select-models',
@@ -52,7 +53,7 @@ export class DesignersSelectModelsComponent implements OnInit {
             }
           });
 
-          console.log(this.designer);
+          console.log('set selected models ids');
           console.log(selectedModelsIds);
 
           this.designer.models = selectedModelsIds;
@@ -61,18 +62,4 @@ export class DesignersSelectModelsComponent implements OnInit {
             this.router.navigate(['/designers']);
         });
     }
-
-    private addCheckboxes() {
-        this.designer.selectedModelsIds.map((o, i) => {
-          const control = new FormControl(i === 0); // if first item set to true, else false
-          (this.form.controls.designer.selectedModelsIds as FormArray).push(control);
-        });
-      }
-
-      changeCheckbox(models, i) {
-        if (models) {
-          this.models[i].checked = !this.models[i].checked;
-        }
-      }
-
 }
