@@ -19,23 +19,29 @@ export class DesignersSelectModelsComponent implements OnInit {
 
     public designer: any;
     public models: any;
+    public orderedModels;
 
     ngOnInit() {
         const designerId = this.route.snapshot.queryParamMap.get('designerId');
-
+        this.orderedModels = [];
         this.httpService.getDesignerById(designerId).subscribe(result => {
             this.designer = result;
 
             this.httpService.getFashionModels().subscribe(result => {
                 this.models = result;
 
+                this.designer.favoriteArtists.forEach(model => {
+                    const foundItem = this.models.find(x => x.id === model.artist.id);
+                    foundItem.isSelected = true;
+                    this.orderedModels.push(foundItem);
+                });
+
                 this.models.forEach(model => {
                     const foundItem = this.designer.favoriteArtists.find(x => x.artist.id === model.id);
 
-                    if (foundItem !== undefined) {
-                        model.isSelected = true;
-                    } else {
+                    if (foundItem === undefined) {
                         model.isSelected = false;
+                        this.orderedModels.push(model);
                     }
                   });
 
