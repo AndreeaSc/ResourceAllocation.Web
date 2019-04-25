@@ -12,6 +12,7 @@ export class DesignersListComponent implements OnInit {
 
     public designers: any;
     public allocated: any;
+
     constructor(public httpService: HttpService, public router: Router) {}
 
     ngOnInit() {
