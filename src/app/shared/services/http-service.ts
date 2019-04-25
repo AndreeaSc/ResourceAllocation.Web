@@ -11,7 +11,6 @@ export class HttpService {
     BASE_URL = 'https://localhost:44304';
     FASHION_MODELS = this.BASE_URL + '/api/artists';
     DESIGNERS = this.BASE_URL + '/api/designers';
-    EVENTS = this.BASE_URL + '/api/shows';
     ALLOCATED_MODELS = this.BASE_URL + '/api/resourceallocation';
 
     contentHeader: HttpHeaders = new HttpHeaders({
@@ -20,26 +19,6 @@ export class HttpService {
         'Cache-Control': 'no-cache',
         'Access-Control-Allow-Origin': 'http://localhost:4200'
       });
-
-    public getEvents(): any {
-        return this.httpClient.get(this.EVENTS, {headers: this.contentHeader});
-    }
-
-    public saveEvent(event: any): any {
-        return this.httpClient.put(this.EVENTS, event, {headers: this.contentHeader});
-    }
-
-    public getEventById(id) {
-        return this.httpClient.get(this.EVENTS + '/' + id, {headers: this.contentHeader});
-    }
-
-    public deleteEvent(id) {
-        return this.httpClient.delete(this.EVENTS + '/' + id, {headers: this.contentHeader});
-    }
-
-    public updateEvent(event) {
-        return this.httpClient.patch(this.EVENTS, event, {headers: this.contentHeader});
-    }
 
     public saveDesigner(designer: any): any {
         return this.httpClient.put(this.DESIGNERS, designer, {headers: this.contentHeader});

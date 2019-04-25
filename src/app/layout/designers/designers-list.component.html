@@ -7,13 +7,18 @@
    </h1>
    <hr>
 </div>
+
+<div>
+   <h6>Favorites artists for designers</h6>
+</div>
+
 <div class="card-body table-responsive">
    <table class="table">
       <thead>
          <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Mail</th>
+            <th>ShowwwwwwTiiiime</th>
             <th>Edit/ Delete</th>
          </tr>
       </thead>
@@ -21,16 +26,29 @@
          <tr *ngFor="let designer of designers; index as i">
             <th scope="row">{{i + 1}}</th>
             <td>{{designer.name}}</td>
-            <td>{{designer.mail}}</td>
+            <td>{{designer.dateTimeShow}}</td>
             <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
             <i class="fa fa-trash btn"(click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
+            <td class="table">
+               <thead>
+                  <tr>
+                     <th>#</th>
+                     <th>Favorites artists</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let favoriteArtist of designer?.favoriteArtists; index as i">
+                     <td scope="row">{{i + 1}}</td>
+                     <td>{{favoriteArtist.artist.name}}</td></tr>
+               </tbody>
+            </td>
          </tr>
       </tbody>
    </table>
 </div>
 
 <div>
-   <h6>Allocated models for designers</h6>
+   <h6>Allocated artists for designers</h6>
 </div>
 
    <div class="card-body table-responsive">

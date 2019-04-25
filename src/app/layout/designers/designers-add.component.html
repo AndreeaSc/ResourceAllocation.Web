@@ -18,7 +18,17 @@
                     <fieldset class="form-group">
                         <label>Mail</label>
                         <input [(ngModel)]="mail" name="mail" class="form-control" type="mail" placeholder="@gmail.com">
-                    </fieldset>    
+                    </fieldset>
+                    
+                    <fieldset class="form-group">
+                        <label>Event location</label>
+                        <input [(ngModel)]="location" name="location" class="form-control" placeholder="Gradina Zoo">
+                    </fieldset>   
+
+                    <fieldset class="form-group">
+                        <label>Event date and time</label>
+                        <input [(ngModel)]="date" name="date" type="datetime" class="form-control" placeholder="">
+                    </fieldset>  
     
                     <button type="reset" (click)="clearData()" class="btn btn-lg btn-link">Clear</button>
                     

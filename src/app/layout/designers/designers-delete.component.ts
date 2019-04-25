@@ -17,7 +17,7 @@ export class DesignersDeleteComponent implements OnInit {
 
     ngOnInit() {
         const designerID = this.route.snapshot.queryParamMap.get('id');
-        this.httpService.getEventById(designerID).subscribe(result => {
+       this.httpService.getDesignerById(designerID).subscribe(result => {
             this.designer = result;
         });
     }

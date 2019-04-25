@@ -9,8 +9,27 @@
             <form role="form">
                <fieldset class="form-group">
                   <label>Name</label>
-                  <input [(ngModel)]="designer.name" name="designer" class="form-control" placeholder="Tudorescu">
+                  <input [(ngModel)]="designer.name" name="designer" class="form-control">
                </fieldset>
+               <fieldset class="form-group">
+                  <label>Surname</label>
+                  <input [(ngModel)]="designer.surname" name="surname" class="form-control">
+              </fieldset>
+
+              <fieldset class="form-group">
+                  <label>Mail</label>
+                  <input [(ngModel)]="designer.mail" name="mail" class="form-control" type="mail">
+              </fieldset>
+              
+              <fieldset class="form-group">
+                  <label>Event location</label>
+                  <input [(ngModel)]="designer.locationShow" name="locationShow" class="form-control">
+              </fieldset>   
+
+              <fieldset class="form-group">
+                  <label>Event date and time</label>
+                  <input [(ngModel)]="designer.dateTimeShow" name="dateTimeShow" type="datetime" class="form-control">
+              </fieldset>  
                <button type="submit" (click)="updateData()" style="float: right;" class="btn btn-lg btn-success">Save</button>
             </form>
          </div>
