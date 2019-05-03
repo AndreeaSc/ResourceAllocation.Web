@@ -9,9 +9,12 @@ export class HttpService {
     }
 
     BASE_URL = 'https://localhost:44304';
+    // BASE_URL = 'http://api.modellink.dev.nerdscomputing.com';
     FASHION_MODELS = this.BASE_URL + '/api/artists';
     DESIGNERS = this.BASE_URL + '/api/designers';
-    ALLOCATED_MODELS = this.BASE_URL + '/api/resourceallocation';
+    ALLOCATED_MODELS = this.BASE_URL + '/api/resourceallocation/adjusted-winner';
+    DESCENDING_DEMAND = this.BASE_URL + '/api/resourceallocation/descending-demand';
+    ADJUSTED_WINNER = this.BASE_URL + '/api/resourceallocation/adjusted-winner';
 
     contentHeader: HttpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -69,5 +72,13 @@ export class HttpService {
 
     public getAllocatedModels() {
         return this.httpClient.get(this.ALLOCATED_MODELS, {headers: this.contentHeader});
+    }
+
+    public getAdjustedWinnerEvalutation() {
+        return this.httpClient.get(this.ADJUSTED_WINNER, {headers: this.contentHeader});
+    }
+
+    public getDescendingDemandEvalutation() {
+        return this.httpClient.get(this.DESCENDING_DEMAND, {headers: this.contentHeader});
     }
 }
