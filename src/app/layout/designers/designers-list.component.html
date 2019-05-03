@@ -61,7 +61,7 @@
             </tr>
          </thead>
          <tbody>
-            <tr *ngFor="let designer of allocated; index as i">
+            <tr *ngFor="let designer of algorithmResult?.designers; index as i">
                <th scope="row">{{i + 1}}</th>
                <td>{{designer.name}}</td>
                <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;

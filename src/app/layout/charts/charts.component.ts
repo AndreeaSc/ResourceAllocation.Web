@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { HttpService } from 'src/app/shared/services/http-service';
+// import { HttpService } from 'src/app/shared/services/http-service';
+// import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-charts',
@@ -9,25 +12,38 @@ import { routerTransition } from '../../router.animations';
 })
 export class ChartsComponent implements OnInit {
     // bar chart
+    public scoreAW: any;
+    public scoreDD: any;
+
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
     };
     public barChartLabels: string[] = [
-        '2006',
-        '2007',
-        '2008',
-        '2009',
-        '2010',
-        '2011',
-        '2012'
+        'score'
+    ];
+
+    public barChartLabelsTime: string[] = [
+        'time'
     ];
     public barChartType: string;
     public barChartLegend: boolean;
 
-    public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    public barChartDataScore: any[] = [
+        { data: [0], label: 'Adjusted winner' },
+        { data: [0], label: 'Descending demand' }
+    ];
+
+    public barChartDataTime: any[] = [
+        { data: [0], label: 'Adjusted winner' },
+        { data: [0], label: 'Descending demand' }
     ];
 
     // Doughnut
@@ -147,9 +163,13 @@ export class ChartsComponent implements OnInit {
             Math.random() * 100,
             40
         ];
-        const clone = JSON.parse(JSON.stringify(this.barChartData));
+        const clone = JSON.parse(JSON.stringify(this.barChartDataScore));
         clone[0].data = data;
-        this.barChartData = clone;
+        this.barChartDataScore = clone;
+
+        const cloneT = JSON.parse(JSON.stringify(this.barChartDataTime));
+        cloneT[0].data = data;
+        this.barChartDataTime = cloneT;
         /**
          * (My guess), for Angular to recognize the change in the dataset
          * it has to change the dataset variable directly,
@@ -158,7 +178,8 @@ export class ChartsComponent implements OnInit {
          */
     }
 
-    constructor() {}
+    constructor(public httpService: HttpService) {}
+
 
     ngOnInit() {
         this.barChartType = 'bar';
@@ -170,5 +191,26 @@ export class ChartsComponent implements OnInit {
         this.polarAreaChartType = 'polarArea';
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+
+        this.httpService.getAdjustedWinnerEvalutation()
+            .subscribe(awResponse => {
+                this.scoreAW = awResponse;
+                this.httpService.getDescendingDemandEvalutation()
+                    .subscribe(ddResponse => {
+                        this.scoreDD = ddResponse;
+                        this.barChartDataScore = [
+                            { data: [this.scoreAW.score], label: 'Adjusted winner' },
+                            { data: [this.scoreDD.score], label: 'Descending demand' }
+                        ];
+                        this.barChartDataTime = [
+                            { data: [this.scoreAW.timeExecuted], label: 'Adjusted winner' },
+                            { data: [this.scoreDD.timeExecuted], label: 'Descending demand' }
+                        ];
+                });
+        });
+
+        // this.httpService.getDescendingDemandEvalutation()
+        // .subscribe(response => { this.scoreDD = response;
+        // });
     }
 }

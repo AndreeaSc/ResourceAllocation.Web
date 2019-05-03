@@ -53,7 +53,7 @@ export class DesignersSelectModelsComponent implements OnInit {
 
         const selectedModelsIds = [];
 
-        this.models.forEach(model => {
+        this.orderedModels.forEach(model => {
             if (model.isSelected === true) {
                 selectedModelsIds.push(model.id);
             }
