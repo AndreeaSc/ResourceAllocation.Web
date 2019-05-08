@@ -1,85 +1,98 @@
 <div class="page-header">
-   <h1> 
-      <span>Designers ({{designers?.length}})</span>
-      <button type="button" class="btn btn-default float-right" data-toggle="tooltip" data-placement="right" title="Add a new designer">
-      <i class="fa fa-plus" style="font-size: 30px;" id="addButton" (click)="navigateToAddNewDesigner()"></i>
-      </button>
-   </h1>
+   <h3> 
+     <span>Designers ({{designers?.length}}) and allocated fashion models</span>
+     <button type="button" class="btn btn-default float-right" data-toggle="tooltip" data-placement="right" title="Add a new designer">
+     <i class="fa fa-plus" style="font-size: 30px;" id="addButton" (click)="navigateToAddNewDesigner()"></i>
+     </button>
+    </h3>
    <hr>
 </div>
+<div class="row">
+   <div class="col col-sm-6">
+    <div class="card bord">
+           <div>
+               <h1>Favorites artists</h1>
+           </div>
 
-<div>
-   <h6>Favorites artists for designers</h6>
-</div>
+           <div class="card-body table-responsive">
+               <table class="table">
+                   <thead>
+                       <tr>
+                           <th>#</th>
+                           <th>Designer</th>
+                           <th>Show&nbsp;time&nbsp;</th>
+                           <th>Edit/&nbsp;Delete</th>
+                           <th>
+                           </th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr *ngFor="let designer of designers; index as i">
+                           <th scope="row">{{i + 1}}</th>
+                           <td>{{designer.name}}&nbsp;{{designer.surname}}</td>
+                           <td>{{designer.dateTimeShow | date:'d MMM yyyy h:mm a'}}</td>
+                           <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
+                           <i class="fa fa-trash btn" (click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
+                           <td class="table"style="background: #FFECEB">
+                               <thead>
+                                   <tr>
+                                       <th>#</th>
+                                       <th>Favorites artists</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr *ngFor="let favoriteArtist of designer?.favoriteArtists; index as i">
+                                       <td scope="row">{{i + 1}}</td>
+                                       <td>{{favoriteArtist.artist.name}}</td>
+                                   </tr>
+                               </tbody>
+                           </td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
 
-<div class="card-body table-responsive">
-   <table class="table">
-      <thead>
-         <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>ShowwwwwwTiiiime</th>
-            <th>Edit/ Delete</th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr *ngFor="let designer of designers; index as i">
-            <th scope="row">{{i + 1}}</th>
-            <td>{{designer.name}}</td>
-            <td>{{designer.dateTimeShow}}</td>
-            <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
-            <i class="fa fa-trash btn"(click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
-            <td class="table">
-               <thead>
-                  <tr>
-                     <th>#</th>
-                     <th>Favorites artists</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr *ngFor="let favoriteArtist of designer?.favoriteArtists; index as i">
-                     <td scope="row">{{i + 1}}</td>
-                     <td>{{favoriteArtist.artist.name}}</td></tr>
-               </tbody>
-            </td>
-         </tr>
-      </tbody>
-   </table>
-</div>
+   <div class="col col-sm-6">
+       <div class="card mb-3"> 
+<!-- </div>style="background: #E0E8E1"> -->
+           <div>
+               <h1>Allocated artists</h1>
+           </div>
 
-<div>
-   <h6>Allocated artists for designers</h6>
-</div>
-
-   <div class="card-body table-responsive">
-      <table class="table">
-         <thead>
-            <tr>
-               <th>#</th>
-               <th>Name</th>
-               <th>Edit/ Delete</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr *ngFor="let designer of algorithmResult?.designers; index as i">
-               <th scope="row">{{i + 1}}</th>
-               <td>{{designer.name}}</td>
-               <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
-               <i class="fa fa-trash btn"(click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp;
-               <td class="table">
-                  <thead>
-                     <tr>
-                        <th>#</th>
-                        <th>Allocated artists</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr *ngFor="let allocatedArtist of designer?.allocatedArtists; index as i">
-                        <td scope="row">{{i + 1}}</td>
-                        <td>{{allocatedArtist.artist.name}}</td></tr>
-                  </tbody>
-               </td>
-            </tr>
-         </tbody>
-      </table>
+           <div class="card-body table-responsive">
+               <table class="table">
+                   <!-- <thead>
+                       <tr>
+                           <th>#</th>
+                           <th>Designer</th>
+                           <th>Edit/&nbsp;Delete</th>
+                       </tr>
+                   </thead> -->
+                   <tbody>
+                       <tr *ngFor="let designer of algorithmResult?.designers; index as i">
+                           <th scope="row">{{i + 1}}</th>
+                           <td>{{designer.name}}&nbsp;{{designer.surname}}</td>
+                           <!-- <i class="fa fa-edit btn" (click)="navigateEditDesigner(designer.id)"></i>&nbsp;
+                           <i class="fa fa-trash btn" (click)="navigateToDeleteDesigner(designer.id)"></i>&nbsp; -->
+                           <td class="table" style="background: #F0FFF2">
+                               <thead>
+                                   <tr>
+                                       <th>#</th>
+                                       <th>Allocated artists</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr *ngFor="let allocatedArtist of designer?.allocatedArtists; index as i">
+                                       <td scope="row">{{i + 1}}</td>
+                                       <td>{{allocatedArtist.artist.name}}</td>
+                                   </tr>
+                               </tbody>
+                           </td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
    </div>

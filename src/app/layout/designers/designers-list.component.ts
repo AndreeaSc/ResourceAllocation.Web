@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { HttpService } from 'src/app/shared/services/http-service';
 import { Router } from '@angular/router';
-
 @Component({
     selector: 'app-designers-list',
     templateUrl: './designers-list.component.html',
