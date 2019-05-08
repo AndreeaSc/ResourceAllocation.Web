@@ -15,20 +15,20 @@ export class DashboardComponent implements OnInit {
         this.sliders.push(
             {
                 imagePath: 'assets/images/slider1.jpg',
-                label: 'First slide label',
+                label: 'ModelLink for fashion weeks',
                 text:
-                    'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+                    'The best way to the desired fashion models.'
             },
             {
                 imagePath: 'assets/images/slider2.jpg',
-                label: 'Second slide label',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                label: 'ModelLink for fashion weeks',
+                text: 'The best way to the desired fashion models.'
             },
             {
                 imagePath: 'assets/images/slider3.jpg',
-                label: 'Third slide label',
+                label: 'ModelLink for fashion weeks',
                 text:
-                    'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+                    'The best way to the desired fashion models.'
             }
         );
 
