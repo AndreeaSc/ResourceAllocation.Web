@@ -27,8 +27,13 @@
 
                     <fieldset class="form-group">
                         <label>Event date and time</label>
-                        <input [(ngModel)]="date" name="date" type="datetime" class="form-control" placeholder="">
+                        <input [(ngModel)]="date" name="date" type="datetime" class="form-control" placeholder="2019-08-01T13:39:00">
                     </fieldset>  
+
+                    <fieldset class="form-group">
+                        <label>Number of artists needed</label>
+                        <input [(ngModel)]="nrOfArtistsNeeded" name="nrOfArtistsNeeded" class="form-control" placeholder="4">
+                    </fieldset> 
     
                     <button type="reset" (click)="clearData()" class="btn btn-lg btn-link">Clear</button>
                     

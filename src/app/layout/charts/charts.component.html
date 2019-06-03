@@ -1,51 +1,58 @@
 <div [@routerTransition]>
-        <app-page-header [heading]="'Algorithms comparison'" [icon]="'fa-bar-chart-o'"></app-page-header>
-        <div class="row">
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Algorithms score comparison
-                    </div>
-                    <div class="card-body">
-                        <canvas baseChart [datasets]="barChartDataScore" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                        </canvas>
-                    </div>
+    <app-page-header [heading]="'Algorithms comparison'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Algorithms score comparison
+                </div>
+                <div class="card-body">
+                    <canvas baseChart [datasets]="barChartDataScore" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Explanation
-                    </div>
-                    <div class="card-body">
-                        The score is calculated by the difference between the number of favorites artists selected by designer and the number of allocated artists after algorithm was executed for a 
-                    </div>
-                </div>
-            </div>
-    
         </div>
-        <div class="row">
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Periods of the execution algorithms comparison
-                    </div>
-                    <div class="card-body">
-                        <canvas baseChart [datasets]="barChartDataTime" [labels]="barChartLabelsTime" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                        </canvas>
-                    </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Adjusted Winner
+                </div>
+                <div class="card-body">
+                   <p> The score is calculated by the difference between the number of favorites artists selected by designers and the number of allocated artists after algorithm was executed, according to number of artists needed. </p>
+                   <p>In our case, Adjusted Winner algorithm is the best for allocate models.</p>
                 </div>
             </div>
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Explanation
-                    </div>
-                    <div class="card-body">
-                        Descriere timp. Ce inseamna fiecare timp de la fiecare algoritm
-                    </div>
-                </div>
-            </div>
-    
         </div>
     </div>
+    <div class="col col-sm-12 row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Adjunsted winner
+                </div>
+                <div class="card-body">
+                    <p>Adjusted Winner (N=2) is described by (Brams and Taylor 1996) and applie to two individuals or two grups with different interests. The valuation function is additive and may require one of the resources and the end of allocation protocol. The protocl is equitable, envy-free, Paretp efficient. It consists in the following sequence of steps:</p>
+<p>1. Each individual distributes a given number of points (i.e. 100) over the resources to reflect his valuation for each of item; </p>
+<p>2. Each resource is initially given to the individual that assigns it the greatest number of points. If we have a tie for a resource, that resource will not be assigned to any of them;</p>
+<p>3. Each individual sums up the number of total points it has recived and the one that has received the fewest number of points is now given the item that had a tie;</p>
+<p>4. If the number of total points each individual has received is equal, we stop. Otherwise, resources are transferred from the richest to the poorest until the move of resources are transferred form the richest to the poorest until the move of a resource will cause the richest to have fewer total points than the poorest. This last transferred resource needs to be split. Resources are transferred in the ascending order of their associated score. </p>
+<p>5. The score is computed by dividing the points given by the richest to a resource and the points given by the poorest to the same resource.
+
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Descending Demand
+                </div>
+                <div class="card-body">
+                    <p>Descending Demand (N >= 3) was proposed by Herreiner and Puppe (2002), and, contrary to the protocols presented before, presumes a linear ordering over subsets of resources. Therefore the protocol is not well-suited for a large number of resources. The protocol is egalitarian and Pareto efficient. The steps of the protocol are:</p>
+                    <p>1. The protocol starts by fixing the order in which the individuals will express their preferred bundle of resources.</p>
+                    <p>2. In this predefined order the individuals will first given the most preferred subset of resources. If after this round there is a fesabile allocation by combining only the subsets of resources mentioned up to now, the protocol stops. Otherwise, following the same predefined order, each individual will given their second most preferred subset of resources, and try again to find a fesabile allocation.</p>
+                    <p>3. The protocol continues in this way until a fesabile allocation is found. When there are multiple fesabile solutions, the Pareto efficient one will be chosen.</p>
+                    <p>As may be noticed from the description of protocols for resource allocation, there is no procedure that is guaranteed to satisfy all fairness and efficiency criteria if the group size if grater than 3.</p></div>
+            </div>
+        </div>
+    </div>
+</div>
