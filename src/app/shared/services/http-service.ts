@@ -56,7 +56,7 @@ export class HttpService {
     }
 
     public updateDesigner(designer) {
-        return this.httpClient.patch(this.DESIGNERS, designer, {headers: this.contentHeader});
+        return this.httpClient.patch(this.DESIGNERS + '/' + designer.id + '/update', designer, {headers: this.contentHeader});
     }
 
     public deleteDesigner(id) {
