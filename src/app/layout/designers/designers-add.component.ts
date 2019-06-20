@@ -15,6 +15,9 @@ export class DesignersAddComponent implements OnInit {
     public surname;
     public mail;
     public password;
+    public locationShow;
+    public nrOfArtistsNeeded;
+    public dateTimeShow;
 
     constructor(public httpService: HttpService, public router: Router) {}
 
@@ -32,7 +35,10 @@ export class DesignersAddComponent implements OnInit {
         const designer = {
             name: this.name,
             surname: this.surname,
-            mail: this.mail
+            mail: this.mail,
+            locationShow: this.locationShow,
+            dateTimeShow: this.dateTimeShow,
+            nrOfArtistsNeeded: this.nrOfArtistsNeeded
         };
 
         this.httpService.saveDesigner(designer).subscribe(result => {
